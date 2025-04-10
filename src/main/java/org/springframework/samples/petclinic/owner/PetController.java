@@ -101,7 +101,7 @@ class PetController {
 			RedirectAttributes redirectAttributes) {
 
 		if (StringUtils.hasText(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null)
-			result.rejectValue("name", "duplicate", "already exists");
+			result.rejectValue("name", "duplicate", "이미 존재합니다");
 
 		LocalDate currentDate = LocalDate.now();
 		if (pet.getBirthDate() != null && pet.getBirthDate().isAfter(currentDate)) {
@@ -114,7 +114,7 @@ class PetController {
 
 		owner.addPet(pet);
 		this.owners.save(owner);
-		redirectAttributes.addFlashAttribute("message", "New Pet has been Added");
+		redirectAttributes.addFlashAttribute("message", "새로운 애완동물이 추가되었습니다.");
 		return "redirect:/owners/{ownerId}";
 	}
 
@@ -133,7 +133,7 @@ class PetController {
 		if (StringUtils.hasText(petName)) {
 			Pet existingPet = owner.getPet(petName, false);
 			if (existingPet != null && !existingPet.getId().equals(pet.getId())) {
-				result.rejectValue("name", "duplicate", "already exists");
+				result.rejectValue("name", "duplicate", "이미 존재합니다");
 			}
 		}
 
@@ -147,7 +147,7 @@ class PetController {
 		}
 
 		updatePetDetails(owner, pet);
-		redirectAttributes.addFlashAttribute("message", "Pet details has been edited");
+		redirectAttributes.addFlashAttribute("message", "반려동물 세부정보가 편집되었습니다.");
 		return "redirect:/owners/{ownerId}";
 	}
 

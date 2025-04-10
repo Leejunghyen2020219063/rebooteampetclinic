@@ -75,12 +75,12 @@ class OwnerController {
 	@PostMapping("/owners/new")
 	public String processCreationForm(@Valid Owner owner, BindingResult result, RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
-			redirectAttributes.addFlashAttribute("error", "There was an error in creating the owner.");
+			redirectAttributes.addFlashAttribute("error", "소유자를 만드는 동안 오류가 발생했습니다.");
 			return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 		}
 
 		this.owners.save(owner);
-		redirectAttributes.addFlashAttribute("message", "New Owner Created");
+		redirectAttributes.addFlashAttribute("message", "새 소유자 생성되었습니다.");
 		return "redirect:/owners/" + owner.getId();
 	}
 
@@ -139,19 +139,19 @@ class OwnerController {
 	public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable("ownerId") int ownerId,
 			RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
-			redirectAttributes.addFlashAttribute("error", "There was an error in updating the owner.");
+			redirectAttributes.addFlashAttribute("error", "소유자를 업데이트하는 동안 오류가 발생했습니다.");
 			return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 		}
 
 		if (owner.getId() != ownerId) {
-			result.rejectValue("id", "mismatch", "The owner ID in the form does not match the URL.");
-			redirectAttributes.addFlashAttribute("error", "Owner ID mismatch. Please try again.");
+			result.rejectValue("id", "mismatch", "양식의 소유자 ID가 URL과 일치하지 않습니다.");
+			redirectAttributes.addFlashAttribute("error", "소유자 ID가 일치하지 않습니다. 다시 시도하십시오.");
 			return "redirect:/owners/{ownerId}/edit";
 		}
 
 		owner.setId(ownerId);
 		this.owners.save(owner);
-		redirectAttributes.addFlashAttribute("message", "Owner Values Updated");
+		redirectAttributes.addFlashAttribute("message", "소유자가 업데이트되었습니다.");
 		return "redirect:/owners/{ownerId}";
 	}
 

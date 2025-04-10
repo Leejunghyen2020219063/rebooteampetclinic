@@ -9437,28 +9437,6 @@ strong {
   border-left: 0;
   border-right: 0; }
 
-.navbar a.navbar-brand {
-  background: url("../images/spring-logo-dataflow.png") -1px -1px no-repeat;
-  margin: 12px 0 6px;
-  width: 229px;
-  height: 46px;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0; }
-
-.navbar a.navbar-brand span {
-  display: block;
-  width: 229px;
-  height: 46px;
-  background: url("../images/spring-logo-dataflow.png") -1px -48px no-repeat;
-  opacity: 0;
-  -moz-transition: opacity 0.12s ease-in-out;
-  -webkit-transition: opacity 0.12s ease-in-out;
-  -o-transition: opacity 0.12s ease-in-out; }
-
-.navbar a.navbar-brand:hover span {
-  opacity: 1; }
-
 .navbar li > a, .navbar-text {
   font-family: "montserratregular", sans-serif;
   text-shadow: none;
@@ -9502,7 +9480,7 @@ strong {
     width: 148px;
     height: 50px;
     float: none;
-    background: url("../images/spring-logo-dataflow-mobile.png") 0 center no-repeat; }
+    background: url("../images/Rebooteamgray.png") 0 center no-repeat; }
   .homepage-billboard .homepage-subtitle {
     font-size: 21px;
     line-height: 21px; }
@@ -9516,5 +9494,31 @@ strong {
   .index-page--subtitle {
     margin-top: 10px;
     margin-bottom: 30px; } }
+
+.navbar-brand {
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    background: url("../images/Rebooteamwin.png") no-repeat center center !important;
+    background-size: contain !important;
+    text-indent: -9999px; /* 기존 텍스트 숨김 */
+    transition: background 0.15s ease;
+}
+
+.navbar-brand:hover {
+    background: url("../images/Rebooteamrray.png") no-repeat center center !important;
+    width: 120px;
+    height: 50px;
+    background-size: contain !important;
+}
+
+.row {
+    text-align: center; /* 텍스트와 인라인 요소 수평 중앙 정렬 */
+}
+
+.img-responsive {
+    display: inline-block; /* 인라인 요소로 변경해서 중앙 정렬 적용 */
+}
+
 
 /*# sourceMappingURL=../../../../../../target/petclinic.css.map */
