@@ -1,3 +1,4 @@
+-- 기존 데이터 (동일)
 INSERT INTO vets VALUES (default, 'James', 'Carter');
 INSERT INTO vets VALUES (default, 'Helen', 'Leary');
 INSERT INTO vets VALUES (default, 'Linda', 'Douglas');
@@ -51,3 +52,10 @@ INSERT INTO visits VALUES (default, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits VALUES (default, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (default, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (default, 7, '2013-01-04', 'spayed');
+
+INSERT INTO users (username, password, enabled) VALUES
+  ('admin', '{noop}adminpass', TRUE);
+
+INSERT INTO authorities (username, authority) VALUES
+  ('admin', 'ROLE_ADMIN');
+
