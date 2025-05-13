@@ -46,7 +46,7 @@ public class Vet extends Person {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "vet_specialties", joinColumns = @JoinColumn(name = "vet_id"),
-			inverseJoinColumns = @JoinColumn(name = "specialty_id"))
+		inverseJoinColumns = @JoinColumn(name = "specialty_id"))
 	private Set<Specialty> specialties;
 
 	protected Set<Specialty> getSpecialtiesInternal() {
@@ -71,4 +71,8 @@ public class Vet extends Person {
 		getSpecialtiesInternal().add(specialty);
 	}
 
+	// 수의사의 이름을 반환하는 getName() 메서드
+	public String getName() {
+		return getFirstName() + " " + getLastName();  // Person 클래스에서 상속받은 firstName과 lastName을 합쳐서 반환
+	}
 }

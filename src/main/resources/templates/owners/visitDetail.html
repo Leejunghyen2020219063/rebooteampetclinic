@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'history')}">
+
+<body>
+
+<h2>진단 기록 상세</h2>
+
+<div>
+  <p><strong>방문 날짜:</strong> <span th:text="${visit.date}">2025-01-01</span></p>
+  <p><strong>진단 내용:</strong> <span th:text="${visit.description}">기침 증상</span></p>
+  <p><strong>수의사:</strong>
+    <span th:text="${visit.vet != null ? visit.vet.firstName + ' ' + visit.vet.lastName : '수의사 정보 없음'}"></span>
+  </p>
+  <p><strong>처방:</strong> <span th:text="${visit.prescription}">약물 처방 내용</span></p>
+</div>
+
+<div>
+  <a th:href="@{/owners/history}">목록으로 돌아가기</a>
+</div>
+
+</body>
+</html>

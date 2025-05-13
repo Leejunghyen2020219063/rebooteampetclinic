@@ -44,10 +44,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "pets")
 public class Pet extends NamedEntity {
-
 	@Column(name = "birth_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
+
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private Owner owner;
 
 	@ManyToOne
 	@JoinColumn(name = "type_id")
